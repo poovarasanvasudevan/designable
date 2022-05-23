@@ -40,7 +40,7 @@ export const SettingsForm: React.FC<ISettingFormProps> = observer(
       node.designerProps?.propsSchema &&
       selected.length === 1
     )
-    const form = useMemo(() => {
+    const form = () => {
       return createForm({
         initialValues: node?.designerProps?.defaultProps,
         values: node?.props,
@@ -50,7 +50,7 @@ export const SettingsForm: React.FC<ISettingFormProps> = observer(
           props.effects?.(form)
         },
       })
-    }, [node, node?.props, schema, operation, isEmpty])
+    }
 
     const render = () => {
       if (!isEmpty) {
